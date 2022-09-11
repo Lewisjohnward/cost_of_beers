@@ -27,7 +27,6 @@ Welcome 👋! This website shows the cost of beers worldwide.
 - Flexbox
 - [React](https://reactjs.org/) - JS library
 - [Styled Components](https://styled-components.com/) - For styles
-- [Styled Components](https://styled-components.com/) - For styles
 - D3.js
 
 ## Author

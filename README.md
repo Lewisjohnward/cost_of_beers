@@ -1,5 +1,5 @@
-# Frontend Mentor -  Memory Game
-Welcome 👋! This is my solution to the [Memory Game challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/memory-game-vse4WFPvM).
+# Cost of Beers :beer:
+Welcome 👋! This website shows the cost of beers worldwide.
 
 ## Table of contents
 
@@ -16,19 +16,6 @@ Welcome 👋! This is my solution to the [Memory Game challenge on Frontend Ment
 ### Screenshot
 
 ###TODO
-- [x] Prevent clicking on tile more than once
-- [x] Prevent clicking during uncover animation
-- [x] End game logic
-- [x] Implement scoring
-- [x] Implement variable number of players
-- [x] Icon mode
-- [x] Newgame confirm
-- [ ] Player tie
-- [ ] Single player end screen
-- [x] Issue with single player timer 
-- [ ] Ensure that no duplicate numbers
-- [ ] Orientation issue
-- [ ] HOC portal
 
 
 ## My process
@@ -40,6 +27,8 @@ Welcome 👋! This is my solution to the [Memory Game challenge on Frontend Ment
 - Flexbox
 - [React](https://reactjs.org/) - JS library
 - [Styled Components](https://styled-components.com/) - For styles
+- [Styled Components](https://styled-components.com/) - For styles
+- D3.js
 
 ## Author
 

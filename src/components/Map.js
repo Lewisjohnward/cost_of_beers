@@ -11,11 +11,10 @@ const height = 650
 const width = 2 * height
 
 const Container = styled.div`
-    width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-
 `
 
 const Land = styled.path`
@@ -40,7 +39,9 @@ const Map = ({setCountry, country}) => {
         return !bool
     })
 
-    //test.forEach(d => console.log(d.properties.name))
+    test.forEach((d,i) => {
+        if(i < 10) console.log(d.properties.name)
+    })
 
     const maxPrice = max(priceData, d => d.price)
     const minPrice = min(priceData, d => d.price)

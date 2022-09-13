@@ -1,33 +1,35 @@
+import {useState, useEffect} from "react"
 import styled from "styled-components"
 import Footer from "../components/Footer"
 import Map from "../components/Map"
 import DetailsBar from "../components/DetailsBar"
 
 const Container = styled.div`
-    margin: 0 200px;
+    width: 1400px;
+    margin: 100px auto 0px;
     > * {
         margin-bottom: 30px;
     }
 `
 
-const Title = styled.h1`
-    text-align: center;
-`
 const FlexContainer = styled.div`
     display: flex;
-    background: yellow;
 `
 
 
 
+//<DetailsBar country={country}/>
 const Main = () => {
+    const [country, setCountry] = useState()
+
+    useEffect(() => {
+    }, [country])
+
     return (
         <>
             <Container>
-                <Title>Cost of Beers</Title>
                 <FlexContainer>
-                    <Map />
-                    <DetailsBar />
+                    <Map setCountry={setCountry} country={country}/>
                 </FlexContainer>
             </Container>
             <Footer />

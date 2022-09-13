@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 const Container = styled.div`
+    width: 50%;
     background: red;
     padding: 25px;
     line-height: 25px;
@@ -31,16 +32,20 @@ const Flag = styled.div`
 `
 
 const CostContainer = styled.div`
-    width: 100px;
-    height: 100px;
-    background: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
 `
 
-const DetailsBar = () => {
+const Cost = styled.p`
+`
+
+const DetailsBar = ({country}) => {
     return (
         <Container>
             <TitleContainer>
-                <Country>Bulgaria</Country>
+                <Country>{country}</Country>
                 <Flag>
                     Flag
                 </Flag>
@@ -52,6 +57,9 @@ const DetailsBar = () => {
             This is my details bar container how
             This is my details bar container how
             <CostContainer>
+                <Cost>
+                    £10.00
+                </Cost>
             </CostContainer>
         </Container>
     )

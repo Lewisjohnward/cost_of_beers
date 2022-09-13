@@ -54,7 +54,7 @@ const Marks = ({data}) => {
 
     const projection = geoMercator()
         .scale(innerWidth / 3.0 / Math.PI)
-        .center([0, 20])
+        .center([10, 50])
         .translate([innerWidth / 2 , innerHeight/ 2])
 
     console.log(data)
@@ -74,6 +74,7 @@ const Marks = ({data}) => {
 
 const StyledLand = styled.path`
     fill: #137B80;
+    opacity: ${({highlight}) => highlight && "0.5"};
 `
 
 const Land = ({feature, path}) => {

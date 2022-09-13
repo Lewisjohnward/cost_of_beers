@@ -1,9 +1,10 @@
 import styled from "styled-components"
 import Footer from "../components/Footer"
 import Map from "../components/Map"
+import DetailsBar from "../components/DetailsBar"
 
 const Container = styled.div`
-    margin: 10px;
+    margin: 0 200px;
     > * {
         margin-bottom: 30px;
     }
@@ -11,6 +12,10 @@ const Container = styled.div`
 
 const Title = styled.h1`
     text-align: center;
+`
+const FlexContainer = styled.div`
+    display: flex;
+    background: yellow;
 `
 
 
@@ -20,7 +25,10 @@ const Main = () => {
         <>
             <Container>
                 <Title>Cost of Beers</Title>
-                <Map />
+                <FlexContainer>
+                    <Map />
+                    <DetailsBar />
+                </FlexContainer>
             </Container>
             <Footer />
         </>

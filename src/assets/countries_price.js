@@ -166,4 +166,6 @@ export const priceData =
         {country: "Anguilla", price: 1.60},
         {country: "Greenland", price: 3.57},
         {country: "South Africa", price: 1.07},
+        {country: "Mongolia", price: 1.45},
+        {country: "Saudi Arabia", price: 1.45},
     ]

@@ -9,6 +9,7 @@ const Main = () => {
     const [country, setCountry] = useState()
 
     useEffect(() => {
+        console.log(country)
     }, [country])
 
     return (

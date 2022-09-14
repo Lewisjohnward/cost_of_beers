@@ -7,7 +7,6 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
     background: ${({theme}) => theme.darkBlue};
-    padding: 25px 450px;
     color: white;
     display: flex;
     flex-direction: row;
@@ -20,10 +19,10 @@ const Title = styled.h1`
 `
 
 const Updated = styled.div`
-    padding: 0px 500px;
     margin-top: 5px;
     font-size: 0.8rem;
     opacity: 0.8;
+
 `
 
 const Ico = styled.img`

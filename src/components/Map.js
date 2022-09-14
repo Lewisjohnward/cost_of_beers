@@ -7,41 +7,46 @@ import {geoPath, geoEqualEarth, scaleQuantize, max, min, scaleLinear, schemeBlue
 
 
 
-const height = 650
+const height = 750
 const width = 2 * height
 
 const Container = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    margin: 15px auto;
+    width: ${width}px;
 `
 
 const Land = styled.path`
-    //fill: #137B80;
     fill: ${({fill}) => fill};
-    stroke: ${({highlight}) => highlight && "black"};
+    stroke: white;
+    stroke-width: 0.03rem;
+`
+const Tooltip = styled.div`
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    ${({tooltipPos}) => `top: ${tooltipPos.y - 200 - (125 / 2) - 10 - 5}px`};
+    ${({tooltipPos}) => `left: ${tooltipPos.x - 300}px`};
+    background: ${({theme}) => theme.darkBlue};
+    border-radius: 50px;
+    display: ${({tooltipVisible}) => tooltipVisible ? "flex" : "none"};
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
+
+const Country = styled.div`
+    color: whote;
 `
 
 const Map = ({setCountry, country}) => {
+    const [tooltipVisible, setTooltipVisible] = useState(false)
+    const [tooltipPos, setTooltipPos] = useState({})
     const data = useData()
 
     if (!data) return <pre>Loading...</pre>
 
     const {land, interiors} = data
-
-    //const test = land.features.filter(country => country.properties.name !== "Norway")
-    const test = land.features.filter(country => {
-        let bool = false
-        priceData.forEach(d => {
-            if(d.country === country.properties.name) bool = true
-        })
-        return !bool
-    })
-
-    test.forEach((d,i) => {
-        if(i < 10) console.log(d.properties.name)
-    })
 
     const maxPrice = max(priceData, d => d.price)
     const minPrice = min(priceData, d => d.price)
@@ -54,12 +59,29 @@ const Map = ({setCountry, country}) => {
     var colors = scaleLinear(schemeBlues[9])
         .domain([minPrice,maxPrice])
         .range(["#b4bfcf", "#036bfc"]); 
-    console.log(colors.range())
+
+    const handleMouseMove = (e) => {
+        setTooltipPos({x: e.clientX, y: e.clientY})
+    }
+
 
 
     return (
-        <Container>
-            <svg height={height} width={width}>
+        <Container onMouseMove={e => handleMouseMove(e)}>
+            <Tooltip 
+                tooltipVisible={tooltipVisible}
+                tooltipPos={tooltipPos}
+            >
+                <Country>
+                    {country && country.country}
+                </Country>
+                <Country>
+                    {country && country.price}
+                </Country>
+
+            </Tooltip>
+
+            <svg height={height} width={width} >
                 <g>
                     {land.features.map((feature, i) => {
                         const countryData = priceData.filter(d => d.country === feature.properties.name)
@@ -70,6 +92,8 @@ const Map = ({setCountry, country}) => {
                                 highlight={country === feature.properties.name}
                                 d={path(feature)}
                                 onClick={() => setCountry({country: feature.properties.name, price: countryData[0].price})}
+                                onMouseEnter={() => setTooltipVisible(true)}
+                                onMouseLeave={() => setTooltipVisible(false)}
                             /> 
                         )
                     })}

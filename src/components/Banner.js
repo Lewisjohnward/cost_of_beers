@@ -2,15 +2,16 @@ import styled from "styled-components"
 import beerIco from "../assets/beerIco.png"
 
 const Wrapper = styled.div`
+    background: ${({theme}) => theme.darkBlue};
     margin-bottom: 25px;
 `
 
 const Container = styled.div`
-    background: ${({theme}) => theme.darkBlue};
     color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding: 5px 100px;
 
     > * {margin-right: 40px;}
 `
@@ -19,9 +20,11 @@ const Title = styled.h1`
 `
 
 const Updated = styled.div`
+    background: white;
+    color: rgba(0, 0, 0, 0.7);
     margin-top: 5px;
     font-size: 0.8rem;
-    opacity: 0.8;
+    padding: 5px 200px;
 
 `
 
